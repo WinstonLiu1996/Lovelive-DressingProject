@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+{% block title %}Index | {{super()}} {% endblock %}
+{% block content %}
+     <h1>Hello from {{name}}</h1>
+{% endblock %}
+{% block form %}
+<div class="enter-name">
+    <div class="grid-100">
+        <img src="/static/img/makiwelcome.png" class="bear-avatar" />
+    </div>
+    <div class="grid-100">
+        <form action="{{ url_for('save')}}" method="POST">
+            <label>Dress Your Maki!</label>
+            <input type="text" name="name" value="{{saves.get('name', '')}}" autofocus>
+            <input type="submit" value="Let's dress her!">
+        </form>
+    </div>
+</div>
+{% endblock %}
+{% block script %}
+<script src="/static/script.js"></script>
+{% endblock %}
